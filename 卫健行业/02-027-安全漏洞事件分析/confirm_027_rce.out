@@ -1,0 +1,129 @@
+PREFIX72_SAME True
+<!doctype html>
+<html lang="en">
+<!-- /file.php?c=/flag -->
+  <head>
+    <meta charset="utf-8">
+    <title>头像上传器</title>
+    <style>
+/* common.css */
+body {
+  width: 100%;
+  max-width: 40rem;
+  margin: 1rem auto;
+  font-family: "Consolas", monospace;
+}
+
+main {
+  margin-top: .75rem;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+input[type=text] {
+  padding: .25rem;
+}
+
+/* alert */
+.info {
+  padding: .75rem;
+  color: black;
+  background: #9fbff2;
+  border: 2px solid #76a6f2;
+}
+
+.error {
+  padding: .75rem;
+  color: black;
+  background: #f29fbf;
+  border: 2px solid #ef77a6;
+}
+
+/* navbar */
+.mr-auto {
+  margin-right: auto !important;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  list-style: none;
+  padding: .75rem 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: .75rem;
+}
+
+.navbar img {
+  vertical-align: middle;
+}
+/* light/dark.css */
+RCE027:uid=33(www-data) gid=33(www-data) groups=33(www-data)
+__SEP__
+total 4
+drwxr-xr-x   1 root root  39 Apr 14 14:14 .
+drwxr-xr-x   1 root root  39 Apr 14 14:14 ..
+-rwxr-xr-x   1 root root   0 Apr 14 14:14 .dockerenv
+drwxr-xr-x   1 root root 303 Dec  4  2023 bin
+drwxr-xr-x   2 root root   6 Dec 11  2021 boot
+drwxr-xr-x   5 root root 340 Apr 14 14:14 dev
+drwxr-xr-x   1 root root  66 Apr 14 14:14 etc
+-rwxr--r--   1 root root  38 Dec  4  2023 flag.txt
+drwxr-xr-x   1 root root  19 Dec  4  2023 home
+drwxr-xr-x   1 root root 106 Dec  4  2023 lib
+drwxr-xr-x   2 root root  34 Mar 16  2022 lib64
+drwxr-xr-x   2 root root   6 Mar 16  2022 media
+drwxr-xr-x   2 root root   6 Mar 16  2022 mnt
+drwxr-xr-x   2 root root   6 Mar 16  2022 opt
+dr-xr-xr-x 723 root root   0 Apr 14 14:14 proc
+drwx------   1 root root   6 Mar 18  2022 root
+drwxr-xr-x   1 root root  37 Apr 14 14:14 run
+drwxr-xr-x   1 root root 158 Dec  4  2023 sbin
+drwxr-xr-x   2 root root   6 Mar 16  2022 srv
+dr-xr-xr-x  13 root root   0 Apr 12 06:28 sys
+drwxrwxrwt   1 root root   6 Apr 14 15:11 tmp
+drwxr-xr-x   1 root root  53 Mar 16  2022 usr
+drwxr-xr-x   1 root root  17 Mar 17  2022 var
+__SEP2__
+/flag.txt
+/**/
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>头像上传器</h1>
+      <nav class="navbar">
+        <ul class="mr-auto">
+          <li><a href="/">首页</a></li>
+          <li><a href="theme.php">切换主题</a></li>
+        </ul>
+        <ul>
+          <li>你好, test027! <img src="default.png" width="24" height="24"></li>
+          <li><a href="signout.php">Sign out</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="info">success save in: uploads/20260414151100328.jpg</div>
+    <main>
+      <h2>上传头像</h2>
+      <p>请上传您的自定义头像，并注意上传的文件格式。</p>
+      <form enctype="multipart/form-data" action="upload.php" method="POST">
+        <p><input type="file" name="file"></p>
+        <input type="submit" value="Upload">  
+      </form>
+    </main>
+  </body>
+</html>
