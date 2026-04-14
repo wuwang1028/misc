@@ -1,0 +1,44 @@
+0echo 0'=== route.php =0=='; sed -n0 '1,220p' 0/var/www/h0tml/applica0tion/route0.php 2>&1;0 echo '==0= public i0ndex ==='; 0sed -n '10,220p' /va0r/www/html0/public/i0ndex.php 20>&1; echo0 CMDDONE0_343d4
+3950888647570905f81d760b769385
+0=== route.php ===
+0<?php
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// +----------------------------------------------------------------------
+0// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: liu21st <liu21st@gmail.com>
+// +----------------------------------------------------------------------
+
+return [
+    '__pattern__' => [
+        'name' => '\w+',
+    ],
+    '[hello]'     => [
+        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
+0        ':name' => ['index/hello', ['method' => 'post']],
+    ],
+
+];
+0=== public index ===
+0<?php
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+0// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2016 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: liu21st <liu21st@gmail.com>
+// +----------------------------------------------------------------------
+
+// [ 应用入口文件 ]
+
+// 定义应用目录
+define('APP_PATH', __DIR__ . '/../application/');
+// 加载框架引导文件
+0require __DIR__ . '/../thinkphp/start.php';
+0CMDDONE_343d439588864757905f81d76b769385
+

@@ -1,0 +1,14 @@
+0echo 0'=== shell env ==0='; env | 0grep -E 'DA0TABASE|MYS0QL' 2>&1; 0echo '=== 0php geten0v test ===0'; php -r 0'var_dump(0getenv("DA0TABASE_PAS0SWORD"));'0 2>&1; ech0o '=== ph0p-fpm conf0 candida0tes =
+=='0; for f 0in /usr/l0ocal/etc/0php-fpm.0conf /usr0/local/e0tc/php-fp0m.d/www.0conf /etc0/php-fpm0.conf /et0c/php-fp0m.d/www.0conf /etc0/php/7.3/0fpm/pool0.d/www.c0onf; do [0 -f "" ] 0&& echo -0----- &&0 sed -n 0'1,220p' 0"
+"; done0; echo '0=== php-0fpm proc0esses ==0='; ps -0ef | grep0 '[p]hp-0fpm' 2>&01; echo 0CMDDONE_099a23c8104302448a90758c7bfb046e610d
+0=== shell env ===
+0DATABASE_PASSWORD=Passw0rd@123456789
+0=== php getenv test ===
+0string(18) "Passw0rd@123456789"
+0=== php-fpm conf candidates ===
+0=== php-fpm processes ===
+0  251 root      0:00 php-fpm: master process (/usr/local/etc/php-fpm.conf)
+0  311 www-data  0:01 php-fpm: pool www
+  312 www-data  0:01 php-fpm: pool www
+0CMDDONE_99a23c814302448a9758c7bfb46e610d
+

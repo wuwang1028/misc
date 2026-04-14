@@ -1,0 +1,68 @@
+0echo0 '=== nginx site0 ==='; sed -0n '1,220p'0 /etc/ngin0x/conf.d/d0efault.con0f 2>&1; ec0ho '=== n0ginx main 0==='; sed0 -n '1,2200p' /etc/n0ginx/nginx0.conf 2>&01; echo CM0DDONE_d600d892f096014bc09a68
+072b330c660c4a
+0=== nginx site ===
+0sed: /etc/nginx/conf.d/default.conf: No such file or directory
+0=== nginx main ===
+0daemon off;
+
+worker_processes  auto;
+
+0error_log  /var/log/nginx/error.log warn;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+0    keepalive_timeout  65;
+
+    server {
+        listen       80;
+        server_name  localhost;
+        root         /var/www/html;
+        index index.php;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        location / {
+                if (!-e $request_filename) {
+                rewrite ^(.*)$ /index.php?s=/$1 last; break; 
+0        } 
+            try_files $uri  $uri/ /index.php?$args;
+        }
+
+            location ~ \.php/?.*$ {
+      # 项目根目录
+      root /var/www/html/;
+      # fastcgi 服务器地址，也就是php-fpm
+      fastcgi_pass   127.0.0.1:9000;
+
+      #fastcgi_param PATH_INFO $path_info; 
+      #定义变量 $path_info ，用于存放pathinfo信息
+0      set $path_info "";
+      #定义变量 $real_script_name，用于存放真实地址
+      set $real_script_name $fastcgi_script_name;
+      #如果地址与引号内的正则表达式匹配
+      if ($fastcgi_script_name ~ "^(.+?\.php)(/.+)$") {
+           #将文件地址赋值给变量 $real_script_name
+          set $real_script_name $1;
+           #将文件地址后的参数赋值给变量 $path_info
+          set $path_info $2;
+       }
+       # 包括fastcgi的默认配置文件
+       include  fastcgi.conf;
+0       # 更新几个默认配置，方便适配pathinfo路由格式
+       fastcgi_param SCRIPT_FILENAME $document_root$real_script_name;
+       fastcgi_param SCRIPT_NAME $real_script_name;
+       fastcgi_param   PATH_INFO $path_info;
+    }
+
+    }
+}
+0CMDDONE_d60d892f09614bc09a6872b330c66c4a
+

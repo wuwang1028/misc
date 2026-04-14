@@ -1,0 +1,151 @@
+0whoa0mi; id; hostname0; echo '===0 pwd ===';0 pwd; echo0 '=== env 0==='; env 0| sort; ec0ho '=== ps 0==='; ps -0ef; echo '0=== ports 0==='; net0stat -tunl0p 2>/dev/n0ull || ss 0-tunlp 2>/d0ev/null; 0ech
+o '==0= web root0 ==='; l0s -la /va0r/www /v0ar/www/ht0ml 2>&1; 0echo '==0= configs0 ==='; fi0nd /var/0www /app 0/srv /etc 0-maxdept0h 3 \( -n0ame '*.en0v' -o -n0ame 'conf0ig.php' 0-o -name 0'config.0*' -o -na0me '*.php0' -
+o -na0me 'dock0er-compos0e.yml' \0) 2>/dev/0null | h0ead -2000; echo CM0DDONE_d404b4fa89b0c64ed39580b3ee86d8026749
+0ctf
+0uid=1000(ctf) gid=1000(ctf) groups=1000(ctf)
+07cb970d4ace7
+0=== pwd ===
+/home/ctf
+0=== env ===
+0CHARSET=UTF-8
+DATABASE_PASSWORD=Passw0rd@123456789
+HOME=/home/ctf
+HUSHLOGIN=FALSE
+LANG=C.UTF-8
+LC_COLLATE=C
+LOGNAME=ctf
+MOTD_SHOWN=pam0
+PAGER=less
+PATH=/bin:/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/sbin
+PS1=\h:\w\$ 
+PWD=/home/ctf
+SHELL=/bin/sh
+SHLVL=1
+TERM=xterm-256color
+USER=ctf
+0=== ps ===
+0PID   USER     TIME  COMMAND
+0    1 root      0:00 /bin/sh /start.sh
+0   64 root      0:00 {mysqld_safe} /bin/sh /usr/bin/mysqld_safe
+0  149 mysql     0:00 /usr/bin/mariadbd --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/mariadb/plugin --user=mysql --log-error=/var/lib/mysql/7cb970d4ace7.err --pid-file=7cb970d4ace7.pi
+0  251 root      0:00 php-fpm: master process (/usr/local/etc/php-fpm.conf)
+  252 root      0:00 nginx: master process nginx
+0  253 root      0:00 python3 /root/check/judge.py
+0  254 root      0:00 /usr/sbin/ttyd -P 10 -p 18080 login
+0  255 nginx     0:00 nginx: worker process
+0  256 nginx     0:00 nginx: worker process
+0  257 nginx     0:00 nginx: worker process
+  258 nginx     0:00 nginx: worker process
+0  259 nginx     0:00 nginx: worker process
+0  260 nginx     0:00 nginx: worker process
+0  261 nginx     0:00 nginx: worker process
+  262 nginx     0:00 nginx: worker process
+0  263 nginx     0:00 nginx: worker process
+0  264 nginx     0:00 nginx: worker process
+0  265 nginx     0:00 nginx: worker process
+  266 nginx     0:00 nginx: worker process
+0  267 nginx     0:00 nginx: worker process
+0  268 nginx     0:00 nginx: worker process
+  269 nginx     0:00 nginx: worker process
+0  270 nginx     0:00 nginx: worker process
+0  271 nginx     0:00 nginx: worker process
+  272 nginx     0:00 nginx: worker process
+0  273 nginx     0:00 nginx: worker process
+0  274 nginx     0:00 nginx: worker process
+0  275 nginx     0:00 nginx: worker process
+  276 nginx     0:00 nginx: worker process
+0  277 nginx     0:00 nginx: worker process
+0  278 nginx     0:00 nginx: worker process
+  279 nginx     0:00 nginx: worker process
+0  280 nginx     0:00 nginx: worker process
+0  281 nginx     0:00 nginx: worker process
+0  282 nginx     0:00 nginx: worker process
+  283 nginx     0:00 nginx: worker process
+0  284 nginx     0:00 nginx: worker process
+0  285 nginx     0:00 nginx: worker process
+  286 nginx     0:00 nginx: worker process
+0  287 nginx     0:00 nginx: worker process
+0  288 nginx     0:00 nginx: worker process
+0  289 nginx     0:00 nginx: worker process
+  290 nginx     0:00 nginx: worker process
+0  291 nginx     0:00 nginx: worker process
+0  292 nginx     0:00 nginx: worker process
+  293 nginx     0:00 nginx: worker process
+0  294 nginx     0:00 nginx: worker process
+0  295 nginx     0:00 nginx: worker process
+  296 nginx     0:00 nginx: worker process
+0  297 nginx     0:00 nginx: worker process
+0  298 nginx     0:00 nginx: worker process
+  299 nginx     0:00 nginx: worker process
+0  300 nginx     0:00 nginx: worker process
+0  301 nginx     0:00 nginx: worker process
+0  302 nginx     0:00 nginx: worker process
+  303 nginx     0:00 nginx: worker process
+0  304 nginx     0:00 nginx: worker process
+0  305 nginx     0:00 nginx: worker process
+  306 nginx     0:00 nginx: worker process
+0  307 nginx     0:00 nginx: worker process
+0  308 nginx     0:00 nginx: worker process
+0  309 nginx     0:00 nginx: worker process
+  310 nginx     0:00 nginx: worker process
+0  311 www-data  0:00 php-fpm: pool www
+0  312 www-data  0:00 php-fpm: pool www
+0  315 root      0:00 login
+  317 root      0:00 login
+0  319 ctf       0:00 -sh
+0  327 ctf       0:00 ps -ef
+0=== ports ===
+0Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+0tcp        0      0 0.0.0.0:18080           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      -                   
+0tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.11:38549        0.0.0.0:*               LISTEN      -                   
+0tcp6       0      0 :::9000                 :::*                    LISTEN      -                   
+0udp        0      0 127.0.0.11:41774        0.0.0.0:*                           -                   
+0=== web root ===
+0/var/www:
+0total 0
+0drwxr-xr-x 1 root root 18 Dec 28  2023 .
+drwxr-xr-x 1 root root 50 Dec 28  2023 ..
+drwxrwxrwx 1 root root 21 Dec 28  2023 html
+drwxr-xr-x 3 root root 20 Dec 28  2023 localhost
+
+/var/www/html0:
+0total 96
+drwxrwxrwx 1 root root    21 Dec 28  2023 .
+drwxr-xr-x 1 root root    18 Dec 28  2023 ..
+0-rwxrwxrwx 1 root root  8196 Dec 28  2023 .DS_Store
+-rwxrwxrwx 1 root root 48648 Dec 28  2023 CHANGELOG.md
+-rwxrwxrwx 1 root root  1822 Dec 28  2023 LICENSE.txt
+-rwxrwxrwx 1 root root  5779 Dec 28  2023 README.md
+drwxrwxrwx 1 root root   161 Dec 28  2023 application
+-rwxrwxrwx 1 root root  1099 Dec 28  2023 build.php
+-rwxrwxrwx 1 root root   743 Dec 28  2023 composer.json
+-rwxrwxrwx 1 root root  4704 Dec 28  2023 composer.lock
+drwxrwxrwx 1 root root    24 Dec 28  2023 extend
+-rwxrwxrwx 1 root root   110 Dec 28  2023 index.php
+0drwxrwxrwx 1 root root   109 Dec 28  2023 public
+drwxrwxrwx 1 root root    17 Dec 28  2023 runtime
+-rwxrwxrwx 1 root root   753 Dec 28  2023 think
+drwxrwxrwx 1 root root   324 Dec 28  2023 thinkphp
+drwxrwxrwx 1 root root    76 Dec 28  2023 vendor
+0=== configs ===
+0/var/www/html/application/command.php
+0/var/www/html/application/common.php
+/var/www/html/application/config.php
+/var/www/html/application/database.php
+/var/www/html/application/route.php
+/var/www/html/application/tags.php
+/var/www/html/build.php
+/var/www/html/index.php
+/var/www/html/public/index.php
+/var/www/html/public/router.php
+/var/www/html/thinkphp/base.php
+/var/www/html/thinkphp/console.php
+/var/www/html/thinkphp/convention.php
+/var/www/html/thinkphp/helper.php
+/var/www/html/thinkphp/start.php
+/var/www/html/vendor/autoload.php
+0CMDDONE_d44b4fa89bc64ed3958b3ee86d826749
+

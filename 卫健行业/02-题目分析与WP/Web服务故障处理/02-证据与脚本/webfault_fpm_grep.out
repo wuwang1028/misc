@@ -1,0 +1,15 @@
+0grep 0-nE 'clear_env|^0env\[' /usr0/local/etc0/php-fpm.d/0www.conf 20>&1; echo 0'=== aroun0d clear_en0v ==='; se0d -n '430,0520p' /usr/0local/etc/0php-fpm.d0/www.conf 02>&1; ech0o CMDDONE_00031c53007095
+431e0b515f10db0077f30a
+0396:;clear_env = no
+0=== around clear_env ===
+0; (pool, global or /usr/local)
+
+; Default Value: nothing is defined by default except the values in php.ini and
+0;                specified at startup with the -d argument
+;php_admin_value[sendmail_path] = /usr/sbin/sendmail -t -i -f www@my.domain.com
+;php_flag[display_errors] = off
+;php_admin_value[error_log] = /var/log/fpm-php.www.log
+;php_admin_flag[log_errors] = on
+;php_admin_value[memory_limit] = 32M
+0CMDDONE_0031c5307095431eb515f10db077f30a
+

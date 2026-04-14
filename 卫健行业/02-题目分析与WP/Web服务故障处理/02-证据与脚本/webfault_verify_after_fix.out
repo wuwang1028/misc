@@ -1,0 +1,59 @@
+0echo0 '=== internal ro0utes after f0ix ==='; f0or u in htt0p://127.0.00.1/ http:0//127.0.0.01/index.ph0p http://1027.0.0.1/i0ndex/getuse0r http://1027.0.0.1/in0dex.php/in0dex/getuse0r http://1027.0.0.1
+/0public/i0ndex.php 0http://1207.0.0.1/0public/in0dex.php/i0ndex/getu0ser; do 0echo ----0--; curl 0-sS -i "0" | head 0-40; ech0o; done; 0echo '===0 wait jud0ge ===';0 sleep 120; echo '=0== flag 0probes ==0='; ls -l0 / /tmp 
+/0home/ctf0 2>/dev/n0ull; for 0f in /fla0g /tmp/fl0ag /home/0ctf/flag0 /home/ct0f/flag.tx0t /tmp/f0lag.txt; 0do [ -f "0" ] && e0cho ------0 && cat 0""; done;0 echo '==0= recent 0files ==0='; find 0/tmp /ho0me/ctf -0maxdepth
+ 02 -type f0 -mmin -05 2>/dev0/null | h0ead -80; 0echo CMDD0ONE_58450dbf66b05401d7ad0db006c84d8903c6
+0=== internal routes after fix ===
+------
+0curl: (3) URL 0using bad/illegal format or missing URL
+0
+------
+0curl: (3) UR0L using bad/illegal format or missing0 URL
+0
+------
+0curl: (3) UR0L using bad/illegal format or mis0sing URL
+0
+------
+0curl: (3) UR0L using bad/illegal format or mis0sing URL
+0
+------
+0curl: (3) URL0 using bad/illegal format or mi0ssing URL
+0
+------
+0curl: (3) URL 0using bad/illegal format or missing0 URL
+0
+=== wait judge ===
+0=== flag probes ===
+0/:
+0total 36
+0drwxr-xr-x   1 root root  4096 Dec 28  2023 bin
+drwxr-xr-x   5 root root   340 Apr 14 22:31 dev
+drwxr-xr-x   1 root root    57 Apr 14 22:31 etc
+drwxr-xr-x   1 root root    17 Dec 28  2023 home
+drwxr-xr-x   1 root root  4096 Dec 28  2023 lib
+drwxr-xr-x   5 root root    44 Mar 16  2022 media
+drwxr-xr-x   2 root root     6 Mar 16  2022 mnt
+drwxr-xr-x   2 root root     6 Mar 16  2022 opt
+dr-xr-xr-x 775 root root     0 Apr 14 22:31 proc
+0-r-x------   1 root root 18296 Dec 28  2023 readflag
+drwx------   1 root root    18 Dec 28  2023 root
+drwxr-xr-x   1 root root    33 Apr 14 22:31 run
+drwxr-xr-x   1 root root  4096 Dec 28  2023 sbin
+drwxr-xr-x   2 root root     6 Mar 16  2022 srv
+-r--------   1 root root  1140 Dec 28  2023 start.sh
+dr-xr-xr-x  13 root root     0 Apr 14 22:31 sys
+drwxrwxrwt   1 root root   138 Apr 14 23:00 tmp
+drwxr-xr-x   1 root root    30 Dec 28  2023 usr
+drwxr-xr-x   1 root root    50 Dec 28  2023 var
+0
+/home/ctf:
+total 4
+-rw-r--r-- 1 ctf ctf 342 Dec 28  2023 README.md
+0
+/tmp:
+0total 4
+-rwxr-xr-x 1 ctf  ctf  1973 Apr 14 23:00 database.php.bak
+drwxr-xr-x 3 root root   46 Apr 14 22:31 tmp_installers
+0=== recent files ===
+0/home/ctf/.ash_history
+0CMDDONE_5845dbf66b0541d7ad0db06c84d893c6
+

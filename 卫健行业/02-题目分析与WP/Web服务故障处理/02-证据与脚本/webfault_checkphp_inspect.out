@@ -1,0 +1,19 @@
+0echo 0'=== find Check.p0hp ==='; fin0d /var/www0/html -inam0e 'Check.p0hp' -o -in0ame 'check0.php' 2>&10; echo '==0= applicati0on controll0ers ==='; f0ind /var/w0ww/html/ap0plication 0-maxdepth0 4 -typ
+e 0f | sort0 2>&1; ec0ho '=== s0how Check0.php fil0es ==='; 0for f in0 ; do ec0ho ------0; sed -n0 '1,220p0' "" 2>&10; done; 0echo CMD0DONE_a27860be23dc3406fab34e8050a3044a0054
+0=== find Check.php ===
+0/var/www/html/application/index/controller/Check.php
+0=== application controllers ===
+0/var/www/html/application/.DS_Store
+/var/www/html/application/.htaccess
+/var/www/html/application/command.php
+/var/www/html/application/common.php
+/var/www/html/application/config.php
+/var/www/html/application/database.php0
+/var/www/html/application/index/.DS_Store
+/var/www/html/application/index/controller/Check.php
+/var/www/html/application/index/controller/Index.php
+/var/www/html/application/route.php
+/var/www/html/application/tags.php
+0=== show Check.php files ===
+CMDDONE_a2786be23dc346fab34e850a3044a054
+

@@ -1,0 +1,13 @@
+0sed -i0 "s/getenv('DATABAS0E_PASSWORD'0)/'Passw0r0d@1234567809'/" /var/0www/html/a0pplication0/database0.php && ec0ho '=== da0tabase.php 0password 0line ===' 0&& grep -n0 "passwor0d" /var/ww0w/html/a0pp
+licati0on/databa0se.php &&0 echo '===0 check e0ndpoint 0===' && c0url -sS 0http://1207.0.0.1/0public/i0ndex.php0/index/ch0eck/test0mysql && e0cho && e0cho '=== 0getuser 0endpoint0 ===' && 0curl -sS0 http://0127.0.0.10/publi
+c/0index.php0/index/in0dex/getu0ser && ec0ho && sl0eep 8 && 0echo '==0= /flag 0===' && 0if [ -f 0/flag ];0 then cat 0/flag; e0lse echo0 NOFLAG;0 fi; ech0o CMDDON0E_2dccf70d8b2d64d0a381a28f0719678d80ba
+0=== database.php password line ===
+022:    'password'        => 'Passw0rd@123456789',
+0=== check endpoint ===
+08e74933d7c6fa65e1aab5769743447ed0
+=== getuser endpoint ===
+0</br>id: 1</br>username: admin</br>password: 1234560
+0=== /flag ===
+0xctf{d58e5840d29b49c497412467a5f6539b8abbb8f9}
+0CMDDONE_2dccf7d8b2d64da381a28f719678d8ba
+

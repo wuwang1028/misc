@@ -1,0 +1,19 @@
+0echo 0'=== /home/ctf/REA0DME.md ==='; sed -n 0'1,220p' /h0ome/ctf/READ0ME.md 2>&01; echo '=0== /start.s0h ==='; se0d -n '1,2200p' /start0.sh 2>&1; 0echo '=== 0judge proc 0==='; ps -0ef | grep 0'[j]udg
+e.p0y'; echo 0'=== jud0ge cmdlin0e ==='; t0r '\0' ' 0' < /proc0/253/cmdl0ine 2>/de0v/null; 0echo; ech0o '=== r0oot chec0k dir per0ms ===';0 ls -ld 0/root /ro0ot/check0 2>&1; ec0ho CMDDO0NE_859cc0c33fb49410d3a03e2b0c90cb0920a
+b
+0=== /home/ctf/README.md ===
+01. 服务异常时，可销毁当前容器，再次生成容器
+2. 请勿修改Check.php内容，否则会导致服务异常无法正常生成flag
+3. 使用 curl "http://127.0.0.1/public/index.php/index/Index/index" 访问 ThinkPHP 站点
+04. 找出并处理ThinkPHP站点存在的故障，处理完成后，会自动在根目录中生成flag
+0=== /start.sh ===
+0sed: /start.sh: Permission denied
+0=== judge proc ===
+0  253 root      0:00 python3 /root/check/judge.py
+0=== judge cmdline ===
+0python3 /root/check/judge.py 0
+=== root check dir perms ===
+0ls: cannot access '/root/check': Permission denied
+0drwx------ 1 root root 18 Dec 28  2023 /root
+0CMDDONE_859ccc33fb4941d3a03e2bc90cb092ab
+

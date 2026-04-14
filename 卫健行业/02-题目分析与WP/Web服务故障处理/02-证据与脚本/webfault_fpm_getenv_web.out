@@ -1,0 +1,7 @@
+0echo '0<?php var_dump(geten0v("DATABASE_PAS0SWORD")); ?>' >0 /var/www/htm0l/public/envte0st.php && ech0o '=== curl e0nvtest ===' &0& curl -sS htt0p://127.0.00.1/public/envtes0t.php && echo0 && rm -
+f /va0r/www/html/p0ublic/envtest0.php; echo CM0DDONE_1cbe05af3d9174520e8d8e3c60045024370
+0=== curl envtest ===
+0bool(false)
+0
+0CMDDONE_1cbe5af3d917452e8d8e3c6004524370
+
