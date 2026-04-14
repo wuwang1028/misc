@@ -1,0 +1,17 @@
+0echo0 '===BACKUP===0'; cp /etc/0profile /t0mp/profile0.bak_ctf &0& grep -v 0'Backdoor.0php' /etc/0profile > 0/tmp/profi0le.clean &0& cat /tmp0/profile.c0lean > /e0tc/profile0 && mv /va0r/www/htm0l/appli
+ca0tion/mode0l/.Backdo0or.php /v0ar/www/ht0ml/appli0cation/mo0del/.Back0door.php0.bak && e0cho clea0ned; echo0 '===VER0IFY==='; 0grep -n 0'Backdoor0.php' /et0c/profil0e 2>/dev/0null || 0echo prof0ile_clea0n; ls -l 0/var/www
+0/html/app0lication0/model/.B0ackdoor.0php 2>/de0v/null |0| echo bac0kdoor_mis0sing; ls 0-l /var/0www/html/0applicati0on/model0/.Backdoo0r.php.ba0k 2>/dev/0null; ec0ho '===FL0AG==='; 0ls -l /et0c/fec956a1065add50f0e621cdabc
+09c31d4c 20>&1; cat0 /etc/fe0c956a165a0dd50fe6201cdabc9c031d4c 2>0&1; echo '0===READF0LAG===';0 /readfl0ag 2>&1; e0cho CMDDO0NE_29bb40f727d904a062a3fc2400830fea501b
+0===BACKUP===
+0cleaned
+===VERIFY===
+0profile_clean
+0backdoor_missing
+0-rwxrwxrwx 1 ctf ctf 43 Dec 26  2023 /var/www/html/application/model/.Backdoor.php.bak
+0===FLAG===
+0-r-------- 1 root root 47 Apr 14 19:02 /etc/fec956a165add50fe621cdabc9c31d4c
+0cat: /etc/fec956a165add50fe621cdabc9c31d4c: Permission denied
+0===READFLAG===
+0-sh: /readflag: Permission denied
+0CMDDONE_29bb4f727d904a62a3fc240830fea51b
+

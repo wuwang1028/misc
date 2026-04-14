@@ -1,0 +1,4 @@
+0rm -f0 /home/ctf/.ash_h0istory; ln 0-sf /dev/nu0ll /home/c0tf/.ash_his0tory; prin0tf '' >/tm0p/emptycro0n; crontab 0/tmp/empty0cron; sleep0 150; echo0 '=== flag0 check ===0'; ls -la 0/flag /hom0e/ctf/.
+a0sh_histor0y 2>&1; [0 -f /flag0 ] && cat0 /flag 20>&1; echo0 CMDDONE0_cbaa27e706c33415f80c831871307fd505f
+0=== flag check ===
+

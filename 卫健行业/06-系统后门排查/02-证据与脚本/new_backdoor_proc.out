@@ -1,0 +1,72 @@
+0echo '0===PROC17_CMD==='0; tr '\0' '0 ' < /proc0/17/cmdlin0e 2>/dev/n0ull; echo0; echo '==0=PROC17_STA0TUS==='; se0d -n '1,1200p' /proc0/17/status0 2>/dev/n0ull; echo 0'===PROC107_FD==='; 0ls -l /p0roc/
+17/fd0 2>&1; e0cho '===0PROC17_RO0OT==='; 0ls -l /pr0oc/17/ro0ot /proc0/17/root/0etc/fec9056a165ad0d50fe6210cdabc9c310d4c /pro0c/17/root/0root/che0ck/judge.0py 2>&1; 0echo '==0=PROC1_E0NV==='; 0tr '\0' 0'\n' < /0proc/1/e0nvi
+ron 2>0/dev/nul0l | sed 0-n '1,1200p'; echo0 CMDDONE0_7fb259a0825394be0cb9a4a1f0e2e7e45a0f
+0===PROC17_CMD===
+0python3 /root/check/judge.py 0
+===PROC17_STATUS===
+0Name:	python3
+Umask:	0022
+State:	S (sleeping)
+Tgid:	17
+0Ngid:	0
+Pid:	17
+PPid:	1
+TracerPid:	0
+Uid:	0	0	0	0
+Gid:	0	0	0	0
+FDSize:	64
+Groups:	0 1 2 3 4 6 10 11 20 26 27 
+NStgid:	17
+NSpid:	17
+NSpgid:	1
+0NSsid:	1
+VmPeak:	   20676 kB
+VmSize:	   20580 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   17664 kB
+VmRSS:	   17620 kB
+RssAnon:	   11860 kB
+RssFile:	    5760 kB
+RssShmem:	       0 kB
+VmData:	   11728 kB
+0VmStk:	     132 kB
+VmExe:	       8 kB
+VmLib:	    3876 kB
+VmPTE:	      80 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+Threads:	1
+SigQ:	2/513858
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+0SigBlk:	0000000000000000
+SigIgn:	0000000001001006
+SigCgt:	0000000000000000
+CapInh:	0000000000000000
+CapPrm:	00000000a80425fb
+CapEff:	00000000a80425fb
+CapBnd:	00000000a80425fb
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	2
+Speculation_Store_Bypass:	thread force mitigated
+Cpus_allowed:	ffffff,ffffffff
+0Cpus_allowed_list:	0-55
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000003
+Mems_allowed_list:	0-1
+voluntary_ctxt_switches:	52
+nonvoluntary_ctxt_switches:	2
+0===PROC17_FD===
+0ls: cannot open directory '/proc/17/fd': Permission denied
+0===PROC17_ROOT===
+0ls: cannot read symbolic link '/proc/17/root': Permission denied
+0ls: cannot access '/proc/17/root/etc/fec956a165add50fe621cdabc9c31d4c': Permission denied
+0ls: cannot access '/proc/17/root/root/check/judge.py': Permission denied
+lrwxrwxrwx 1 root root 0 Apr 14 19:06 /proc/17/root
+0===PROC1_ENV===
+0-sh: can't open /proc/1/environ: Permission denied
+0CMDDONE_7fb259a825394becb9a4a1fe2e7e45af
+

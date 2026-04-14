@@ -1,0 +1,41 @@
+0echo 0'===WHO==='; id;0 echo '===RO0OTDIR===';0 ls -la / 02>&1 | sed0 -n '1,1200p'; echo '0===ETCFLAG0==='; ls -0l /etc/fec0956a165add050fe621cda0bc9c31d4c 02>&1; cat 0/etc/fec9506a165add500fe621cda0bc9
+c31d4c0 2>&1; ec0ho '===R0EADFLAG==0='; /read0flag 2>&01; echo '0===ROOTF0LAG_NAMES0==='; fin0d / -maxd0epth 1 -0type f \(0 -name '0flag*' -0o -name 0'*flag*'0 \) -exec0 ls -l {0} \; 2>&01; echo 0CMDDONE_017761949037; echo0 
+CMDDONE_07210aa7603d57478708be4bea30b76f57cf0
+0===WHO===
+0uid=1000(ctf) gid=1000(ctf) groups=1000(ctf)
+0===ROOTDIR===
+0total 40
+drwxr-xr-x   1 root root    63 Apr 14 19:24 .
+drwxr-xr-x   1 root root    63 Apr 14 19:24 ..
+0-rwxr-xr-x   1 root root     0 Apr 14 19:02 .dockerenv
+drwxr-xr-x   1 root root  4096 Dec 26  2023 bin
+drwxr-xr-x   5 root root   340 Apr 14 19:02 dev
+drwxr-xr-x   1 root root    72 Apr 14 19:02 etc
+-rwxrwxrwx   1 root root    47 Apr 14 19:28 flag
+drwxr-xr-x   1 root root    17 Dec 26  2023 home
+drwxr-xr-x   1 root root  4096 Dec 26  2023 lib
+drwxr-xr-x   5 root root    44 Mar 16  2022 media
+drwxr-xr-x   2 root root     6 Mar 16  2022 mnt
+drwxr-xr-x   2 root root     6 Mar 16  2022 opt
+dr-xr-xr-x 711 root root     0 Apr 14 19:02 proc
+-r-x------   1 root root 18296 Dec 26  2023 readflag
+0drwx------   1 root root    18 Dec 26  2023 root
+drwxr-xr-x   1 root root    18 Dec 26  2023 run
+drwxr-xr-x   1 root root  4096 Dec 26  2023 sbin
+drwxr-xr-x   2 root root     6 Mar 16  2022 srv
+-r--------   1 root root   824 Dec 26  2023 start.sh
+dr-xr-xr-x  13 root root     0 Apr 12 06:28 sys
+drwxrwxrwt   1 root root   143 Apr 14 19:09 tmp
+drwxr-xr-x   1 root root    18 Dec 26  2023 usr
+drwxr-xr-x   1 root root    17 Mar 18  2022 var
+0===ETCFLAG===
+0-r-------- 1 root root 47 Apr 14 19:02 /etc/fec956a165add50fe621cdabc9c31d4c
+0cat: /etc/fec956a165add50fe621cdabc9c31d4c: Permission denied
+0===READFLAG===
+0-sh: /readflag: Permission denied
+0===ROOTFLAG_NAMES===
+0-rwxrwxrwx 1 root root 47 Apr 14 19:28 /flag
+0-r-x------ 1 root root 18296 Dec 26  2023 /readflag
+0CMDDONE_1776194937
+CMDDONE_7210aa763d5747878be4bea3b76f57cf
+

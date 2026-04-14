@@ -1,0 +1,10 @@
+0echo 0'=== hist ==='; 0ls -la /hom0e/ctf/.ash_0history 2>&01; echo '=0== crontab 0==='; cron0tab -l 2>&10; echo '==0= flag ===0'; ls -la /f0lag 2>&1; 0[ -f /flag0 ] && cat /0flag 2>&1;0 echo CMDD0ONE_0
+c959071d650642b0fb8a6feb808478a550
+0=== hist ===
+0lrwxrwxrwx 1 ctf ctf 9 Apr 14 22:34 /home/ctf/.ash_history -> /dev/null
+0=== crontab ===
+0=== flag ===
+0-rwxrwxrwx 1 root root 47 Apr 14 22:37 /flag
+0xctf{6844350a5b1f4977a4d44fd37739666b40bd7252}
+0CMDDONE_0c95971d650642bfb8a6feb88478a550
+

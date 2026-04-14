@@ -1,0 +1,98 @@
+0whoa0mi; id; hostname0; pwd; echo0 '===READM0E==='; ca0t /home/ct0f/README.m0d 2>/dev/n0ull; echo '0===PS===';0 ps aux; e0cho '===N0ET==='; ss -0antlp 2>/d0ev/null |0| netstat 0-antlp 2>0/dev/null0; ech
+o '=0==FILES=0=='; find0 /home /0tmp /var0/www /et0c/cron* 0-maxdepth0 3 -type0 f 2>/de0v/null |0 sort | 0sed -n '10,220p'; 0echo CMD0DONE_cca0db06e61b0547f3b5d0d89438e60c35fb
+0ctf
+0uid=1000(ctf) gid=1000(ctf) groups=1000(ctf)
+08b7ae1305585
+0/home/ctf
+===README===
+01. 服务异常时，可销毁当前容器，再次生成容器
+0===PS===
+0PID   USER     TIME  COMMAND
+0    1 root      0:00 /bin/sh /start.sh
+0   16 root      0:00 su ctf -c cd /tmp && while true ;do /var/www/html/application/model/.Backdoor.php ; sleep 10; done;
+0   17 root      0:00 python3 /root/check/judge.py
+   18 root      0:00 /usr/sbin/ttyd -P 10 -p 18080 login
+0   19 ctf       0:00 sh -c cd /tmp && while true ;do /var/www/html/application/model/.Backdoor.php ; sleep 10; done;
+0   58 root      0:00 login
+0   69 root      0:00 login
+   76 ctf       0:00 sleep 10
+0   77 root      0:00 login
+0   79 ctf       0:00 -sh
+   88 ctf       0:00 ps aux
+0===NET===
+0Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+0tcp        0      0 127.0.0.11:33471        0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:18080           0.0.0.0:*               LISTEN      -                   
+0tcp        0      0 192.168.1.191:18080     192.168.1.130:42346     ESTABLISHED -                   
+tcp        0      0 192.168.1.191:18080     192.168.1.130:42344     TIME_WAIT   -                   
+tcp        0      0 192.168.1.191:18080     192.168.1.130:42350     ESTABLISHED -                   
+tcp        0      0 192.168.1.191:18080     192.168.1.130:42342     TIME_WAIT   -                   
+tcp        0      0 192.168.1.191:18080     192.168.1.130:42336     TIME_WAIT   -                   
+0tcp        0      0 192.168.1.191:18080     192.168.1.130:42340     ESTABLISHED -                   
+tcp        0      0 192.168.1.191:18080     192.168.1.130:42338     TIME_WAIT   -                   
+0===FILES===
+0/etc/crontabs/root
+/home/ctf/.ash_history
+/home/ctf/README.md
+/var/www/html/.env
+0/var/www/html/.gitignore
+/var/www/html/.travis.yml
+/var/www/html/CHANGELOG.md
+/var/www/html/LICENSE.txt
+/var/www/html/README.md
+/var/www/html/application/.htaccess
+/var/www/html/application/404.html
+/var/www/html/application/command.php
+/var/www/html/application/common.php
+/var/www/html/application/middleware.php
+/var/www/html/application/provider.php
+0/var/www/html/application/tags.php
+/var/www/html/build.php
+/var/www/html/composer.json
+/var/www/html/composer.lock
+/var/www/html/config/app.php
+/var/www/html/config/cache.php
+/var/www/html/config/captcha.php
+/var/www/html/config/console.php
+/var/www/html/config/cookie.php
+/var/www/html/config/database.php
+/var/www/html/config/log.php
+/var/www/html/config/middleware.php
+/var/www/html/config/session.php
+0/var/www/html/config/template.php
+/var/www/html/config/trace.php
+/var/www/html/extend/.gitignore
+/var/www/html/public/.htaccess
+/var/www/html/public/1.ttf
+/var/www/html/public/12.jpg
+/var/www/html/public/crop1.png
+/var/www/html/public/favicon.ico
+/var/www/html/public/image.png
+/var/www/html/public/index.php
+/var/www/html/public/mr.lee.png
+/var/www/html/public/robots.txt
+0/var/www/html/public/rotate1.png
+/var/www/html/public/router.php
+/var/www/html/public/text1.png
+/var/www/html/public/thumb1.png
+/var/www/html/public/water1.png
+/var/www/html/route/route.php
+/var/www/html/runtime/.gitignore
+/var/www/html/runtime/build_route.php
+/var/www/html/think
+/var/www/html/thinkphp/.gitignore
+/var/www/html/thinkphp/.htaccess
+/var/www/html/thinkphp/CONTRIBUTING.md
+0/var/www/html/thinkphp/LICENSE.txt
+/var/www/html/thinkphp/README.md
+/var/www/html/thinkphp/base.php
+/var/www/html/thinkphp/composer.json
+/var/www/html/thinkphp/convention.php
+/var/www/html/thinkphp/helper.php
+/var/www/html/thinkphp/logo.png
+/var/www/html/thinkphp/phpunit.xml.dist
+/var/www/html/vendor/.gitignore
+/var/www/html/vendor/autoload.php
+0CMDDONE_ccadb06e61b547f3b5dd89438e6c35fb
+

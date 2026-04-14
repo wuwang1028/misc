@@ -1,0 +1,7 @@
+0echo0 '===FLAG_FILE=0=='; ls -l 0/flag; cat0 /flag 2>&01; echo CM0DDONE_17760194952; ec0ho CMDDONE0_61c1d6ce600e749d9ae30c76ee5f81b2049
+0===FLAG_FILE===
+0-rwxrwxrwx 1 root root 47 Apr 14 19:29 /flag
+0xctf{ea9a4b4914d944888691223d2b4cb133227a07e7}
+0CMDDONE_1776194952
+CMDDONE_61c1d6ce60e749d9ae3c76ee5f81b249
+
