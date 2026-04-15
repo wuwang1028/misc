@@ -1,0 +1,19 @@
+# Web漏洞修复关键成功回显整理
+
+以下内容整理自实际终端回显的关键片段，用于在 WP 中引用最终修复结果。
+
+```text
+===RESTART_STRICT===
+...
+===VERIFY_STRICT===
+...
+===ABS_CHECK===
+-rw-r--r-- 1 root root 11 Apr 15 00:59 /tmp/abs.jpg
+===FLAG===
+-rwxrwxrwx 1 root root 47 Apr 15 01:15 /flag
+xctf{9fae1d09c8a047c29233de3b22a7b1506ce66f93}
+```
+
+说明如下。
+
+第一，`/flag` 已生成且内容可正常读取，说明裁判认可本次修复结果。第二，`/tmp/abs.jpg` 是此前漏洞验证阶段遗留的历史文件，不能再作为补丁是否生效的唯一判断依据，因此最终通过与否以 `/flag` 生成结果为准。第三，本次成功版本对应本地最小兼容修复实现 `SimpleUploadServer.java` 与构建产物 `java-upload-fix-1.0-SNAPSHOT.jar`。
