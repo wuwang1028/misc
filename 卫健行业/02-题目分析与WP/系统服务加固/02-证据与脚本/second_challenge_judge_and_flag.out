@@ -1,0 +1,77 @@
+
+[TITLE]login (8c863b348d2d)
+
+[OPTIONS]{ }
+8c863b348d2d login: ctf
+Password: 
+Welcome to Alpine!
+
+The Alpine Wiki contains a large amount of how-to guides and general
+information about administrating Alpine systems.
+See <http://wiki.alpinelinux.org/>.
+
+You can setup the system with the command: setup-alpine
+
+You may change this message by editing /etc/motd.
+
+8c863b348d2d:~$ [6nsed -n "1,240p" /home/ctf/judge.py.out
+import time
+import os
+import socket
+from ftplib import FTP
+
+# 判断匿名ftp登录是否成功
+def check_anonymous_ftp(host):
+    try:
+        ftp = FTP()
+        ftp.connect(host)
+        ftp.login()  # 尝试匿名登录
+        ftp.quit()
+        return True
+    except Exception as e:
+        return False
+
+# 0表示修复失败，1表示修复成功
+def check():
+    s=socket.socket()
+    ip = "127.0.0.1"
+    port = 6379
+    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    s.connect((ip, port))
+    s.send(bytes(f"auth aaaaaaaaaaaaaaaaaaaaaaaaaaaaa \n", encoding="utf-8"))
+    result = s.recv(1024)
+    if b"called without any password configured for the default user" in result:
+        s.close()
+        return 0
+    elif b"WRONGPASS" in result:
+        s.close()
+        # 再判断ftp匿名登录
+        if check_anonymous_ftp("127.0.0.1"):
+            return 0
+        else:
+            return 1
+    else:
+        return 0
+
+if __name__ == "__main__":
+    while True:
+        time.sleep(15)
+        if check() == 1:
+            flag = os.popen("/readflag").read()
+            with open("/flag", 'w') as f:
+                f.write(f'{flag}')
+                f.close()
+            os.popen("chmod 777 /flag")
+8c863b348d2d:~$ [6necho ---CONF---
+---CONF---
+8c863b348d2d:~$ [6ngrep -nE "^(anonymous_enable|port_enable|seccomp_sandbox)=" /etc/vsftpd/vsftpd.conf
+12:anonymous_enable=NO
+62:seccomp_sandbox=NO
+121:port_enable=NO
+8c863b348d2d:~$ [6necho ---FLAG---
+---FLAG---
+8c863b348d2d:~$ [6nls -l /flag 2>/dev/null || echo noflag
+-rwxrwxrwx 1 root root 47 Apr 15 13:52 /flag
+8c863b348d2d:~$ [6ncat /flag 2>/dev/null || true
+xctf{0c8ad26cb1fb4cc4855b73dce8739c8a81fe78f4}
+8c863b348d2d:~$ [6n
