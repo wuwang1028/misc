@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web027:
+    build: .
+    container_name: web027_avatar_uploader
+    environment:
+      SECRET_KEY: Go to the flag!
+    ports:
+      - "8080:80"
+    restart: unless-stopped
