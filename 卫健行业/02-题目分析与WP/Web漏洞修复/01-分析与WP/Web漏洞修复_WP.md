@@ -60,6 +60,8 @@
 
 本题的真正难点并不在于判断漏洞类型，而在于**如何把修复版 JAR 稳定投递回靶场**。由于普通浏览器下载上传链路不稳定，最终采用了自动化终端执行脚本 `ttyd_exec.py` 与分片传输脚本 `deploy_ttyd_b64.py` 组合处理：先在本地把修复版 JAR 转为 Base64 文本，再通过 ttyd 会话按块写入远端，最后在远端解码还原为 `/home/ctf/java-upload-fix-1.0-SNAPSHOT.jar`。[4] [5]
 
+后续在刷新动态实例时，又额外验证出一个容易踩坑的兼容性问题：新的靶场实例使用的是 **OpenJDK 8**，而最初本地构建的补丁产物由 JDK 11 打包，直接替换后会导致服务启动即退出。为避免后续复现实验再次受此影响，仓库中现已将 `java-upload-fix-1.0-SNAPSHOT.jar` 同步替换为 **Java 8 兼容构建版本**，并额外保留 `java-upload-fix-java8.jar` 与其 Base64 文件供后续快速回传使用。[3] [6]
+
 随后执行 `sudo /restart-web.sh` 完成替换部署。由于该脚本会自动把 `/home/ctf` 中的修复包复制到 `/opt/app/` 并以 root 重新拉起 Java 服务，因此不需要额外提权即可完成最终上线。[1]
 
 | 阶段 | 动作 | 结果 |
@@ -77,7 +79,7 @@
 | --- | --- | --- |
 | 修复版 JAR 部署 | 成功 | 已替换到运行目录并重启 |
 | `/flag` 文件 | 已生成 | 判题认可修复结果 |
-| 最终 flag | `xctf{9fae1d09c8a047c29233de3b22a7b1506ce66f93}` | 题目通过 |
+| 最终 flag | `xctf{9fae1d09c8a047c29233de3b22a7b1506ce66f93}` | 首次完成题目时的 flag |
 
 本题最终 flag 如下。
 
@@ -107,3 +109,4 @@ xctf{9fae1d09c8a047c29233de3b22a7b1506ce66f93}
 [4]: ../02-证据与脚本/ttyd_exec.py "ttyd 终端自动执行脚本"
 [5]: ../02-证据与脚本/deploy_ttyd_b64.py "Base64 分片回传脚本"
 [6]: ../02-证据与脚本/webvuln_success_flag.out "最终修复成功与 flag 回显整理"
+[7]: ../02-证据与脚本/java-upload-fix-java8.jar "Java 8 兼容修复版 JAR 构建产物"
