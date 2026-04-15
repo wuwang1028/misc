@@ -1,0 +1,27 @@
+0mysq0l -uroot -pro0ot -e "ALTE0R USER 'ro0ot'@'local0host' IDEN0TIFIED BY 0'Xctf2026D0b_9'; DROP0 DATABASE 0test; DROP0 USER 'roo0t'@'%'; FL0USH PRIVIL0EGES;" 2>&01
+0ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+067e0c3b3e731:~$ 
+067e0c3b3e731:~$ ec0ho '=== ve0rify new0 root ===0'
+0=== verify new root ===
+067e0c3b3e731:~$ mys0ql -uroot0 -p'Xctf20026Db_9' 0-Nse "sel0ect user0,host,plu0gin from 0mysql.us0er; show 0database0s;" 2>&10
+0mariadb.sys	localhost	mysql_native_password
+root	localhost	mysql_native_password
+mysql	localhost	mysql_native_password
+	localhost	
+0	67e0c3b3e731	
+check	%	mysql_native_password
+check	localhost	mysql_native_password
+0information_schema
+mysql
+performance_schema
+sys
+067e0c3b3e731:~$ 
+067e0c3b3e731:~$ ec0ho '=== f0lag ==='0
+=== flag ===
+067e0c3b3e731:~$ ls0 -l /flag0 2>/dev/0null
+0-rwxrwxrwx 1 root root 47 Apr 15 00:35 /flag
+067e0c3b3e731:~$ ca0t /flag 20>/dev/nu0ll
+0xctf{8a9c66ef70ac401d8efe8cb15b60f8e2dd36fe53}
+067e0c3b3e731:~$ ec0ho CMDDON0E_336d57015775e41b0ebe410420d5bb8a900f
+0CMDDONE_336d5715775e41bebe41042d5bb8a90f
+

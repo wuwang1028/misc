@@ -1,0 +1,24 @@
+0mysql0 -uroot -proot 0-e "ALTER US0ER 'root'@0'localhost0' IDENTIFI0ED BY 'Xct0f2026Db_9'0; DROP DAT0ABASE test0; DROP USE0R 'root'@'0%'; FLUSH 0PRIVILEGES0;" 2>&1
+067e0c3b3e731:~$ 
+067e0c3b3e731:~$ ech0o '=== ve0rify new 0root ==='0
+0=== verify new root ===
+067e0c3b3e731:~$ my0sql -uroo0t -p'Xctf02026Db_9'0 -Nse "s0elect use0r,host,pl0ugin fro0m mysql.u0ser; sho0w databas0es;" 2>&01
+0mariadb.sys	localhost	mysql_native_password
+root	localhost	mysql_native_password
+mysql	localhost	mysql_native_password
+0	localhost	
+	67e0c3b3e731	
+check	%	mysql_native_password
+check	localhost	mysql_native_password
+0information_schema
+mysql
+performance_schema
+sys
+067e0c3b3e731:~$ 
+067e0c3b3e731:~$ ec0ho '=== f0lag ==='0
+=== flag ===
+067e0c3b3e731:~$ ls0 -l /flag0 2>/dev/0null
+067e0c3b3e731:~$ ca0t /flag 20>/dev/nul0l
+067e0c3b3e731:~$ ec0ho CMDDON0E_f68a73407b41a4610f8c13efa086d92c4b0a
+0CMDDONE_f68a7347b41a461f8c13efa86d92c4ba
+

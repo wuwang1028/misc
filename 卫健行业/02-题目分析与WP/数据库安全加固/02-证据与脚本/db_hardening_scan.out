@@ -1,0 +1,25 @@
+0echo0 '=== whoami =0=='; whoami;0 echo '===0 pwd ==='; 0pwd; echo 0'=== readm0e ==='; sed0 -n '1,220p0' /home/ctf/0README.md; 0echo '=== 0ps mysql ==0='; ps -ef0 | grep -i0 mysql | g0rep -v gre0p; echo
+ '0=== ss li0sten ===';0 ss -lntp0 2>/dev/nu0ll | sed 0-n '1,1600p'; echo 0'=== mysq0l config 0hints ===0'; find /0etc/mysql0 /etc -max0depth 3 \0( -name '0my.cnf' -0o -name 'm0ysqld.cnf'0 -o -name0 'mysql.c0onf.d' \)0 2>/
+dev/n0ull | sed 0-n '1,1200p'; echo 0'=== home0 files ==0='; ls -l0a /home/c0tf; echo 0'=== fla0g check =0=='; ls -0l /flag 20>/dev/nul0l; cat /f0lag 2>/d0ev/null; 0echo CMDD0ONE_d74f08b3c656f402a58da4bc0d8b8c1e9003
+0=== whoami ===
+0ctf
+0=== pwd ===
+/home/ctf
+0=== readme ===
+01. 服务异常时，可销毁当前容器，再次生成容器
+2. 请勿删除mysql中的check用户，否则会导致check异常
+0=== ps mysql ===
+0   70 root      0:00 {mysqld_safe} /bin/sh /usr/bin/mysqld_safe
+0  155 mysql     0:00 /usr/bin/mariadbd --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib/mariadb/plugin --user=mysql --log-error=/var/lib/mysql/67e0c3b3e731.err --pid-file=67e0c3b3e731.pid --port=3306
+0=== ss listen ===
+0=== mysql config hints ===
+0/etc/my.cnf
+0=== home files ===
+0total 8
+0drwxr-xr-x 1 ctf  ctf   43 Apr 15 00:22 .
+drwxr-xr-x 1 root root  17 Dec 27  2023 ..
+-rw------- 1 ctf  ctf  578 Apr 15 00:22 .ash_history
+-rw-r--r-- 1 ctf  ctf  131 Dec 27  2023 README.md
+0=== flag check ===
+0CMDDONE_d74f8b3c656f42a58da4bcd8b8c1e903
+

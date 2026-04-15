@@ -1,0 +1,29 @@
+0echo 0'=== sudo -l ==='; sudo -0l 2>/dev/null; e0cho '=== my.cnf 0==='; sed -n '10,220p' /etc/my.0cnf 2>/dev/null0; echo '=== mys0ql root socket0 version ==='; 0mysql -uroot -e0 'select versio0n()
+;' 2>&1; ec0ho '=== database0s ==='; mysq0l -uroot -0Nse 'show d0atabases;0' 2>&1; e0cho '=== 0users ===0'; mysql 0-uroot -N0se "selec0t user,ho0st,plugin0,authenti0cation_st0ring from0 mysql.us0er;" 2>&10; echo '0=== bi
+nd 0and skip-n0etworking0 ==='; my0sql -uroo0t -Nse "s0how vari0ables like 0\'bind_ad0dress\'; 0show vari0ables lik0e \'skip_0networkin0g\';" 2>0&1; echo 0'=== fla0g check =0=='; ls -0l /flag 02>/dev/nu0ll; cat 0/flag 2>/0d
+ev/null0; echo CM0DDONE_eb5092f8a013074c82b73806e7793bb0e352
+0=== sudo -l ===
+0=== my.cnf ===
+0# This group is read both both by the client and the server
+# use it for options that affect everything
+[client-server]
+
+# This group is read by the server
+0[mysqld]
+
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+
+# include all files from the config directory
+!includedir /etc/my.cnf.d
+0=== mysql root socket version ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0=== databases ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0=== users ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0=== bind and skip-networking ===
+0ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+0=== flag check ===
+0CMDDONE_eb592f8a01374c82b7386e7793bbe352
+
